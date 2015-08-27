@@ -1,0 +1,298 @@
+<!--
+@license
+Copyright (c) 2015 The Polymer Project Authors. All rights reserved.
+This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+Code distributed by Google as part of the polymer project is also
+subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+
+		<link href="https://dmb.fxdms.net/dmb/css/bootstrap.css" rel="stylesheet" media="screen">
+		<link rel="stylesheet" href="https://dmb.fxdms.net/dmb/css/jquery.sidr.dark.css">
+		<link href="https://dmb.fxdms.net/dmb/css/custom.css" rel="stylesheet" media="screen">
+		
+    
+		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script>
+			window.jQuery || document.write('<script src="https://dmb.fxdms.net/dmb/js/dist/jquery.min.js"/>')
+		</script>
+		<script src="https://dmb.fxdms.net/dmb/js/dist/utils.min.js"></script>
+		<script src="https://dmb.fxdms.net/dmb/js/dist/angular-combined.min.js"></script>
+		<script src="https://dmb.fxdms.net/dmb/js/dist/bootstrap-combined.min.js"></script>
+		<script src="https://dmb.fxdms.net/dmb/js/dist/dmb-client.min.js"></script>
+		<script src="https://dmb.fxdms.net/dmb/js/apps/conversations/conversationsApp.js"></script>
+		<script src="https://dmb.fxdms.net/dmb/js/apps/external/external.js"></script>
+		<script src="https://dmb.fxdms.net/dmb/js/apps/external/analytics.js"></script>    
+
+<!--
+An element providing a solution to no problem in particular.
+
+Example:
+
+    <proto-element></proto-element>
+
+@demo
+-->
+
+<dom-module id="bank-fraud">
+
+  <template>
+  
+    <iron-ajax
+      id="ajax"
+      contentType="application/json"
+      url=""
+      handle-as="json"
+      on-response="handleResponse"
+      debounce-duration="300">
+    </iron-ajax>
+
+<div class="communication-body" ng-app="ConversationsApp" >
+	<div class="communication-msg">
+		<p>
+			Dear <span>{{userProfile.firstName}}</span> <span>{{userProfile.lastName}}</span>,
+		</p>
+		<p>Recently you told us of unauthorised transactions made with your MasterCard Altitude Card 5163xxxxxxxx6644. To protect you from further unauthorised transactions, we have stopped and replaced your card. Your replacement card(s) will have a new card number and will arrive shortly.</p>
+
+		<p>We will be placing a temporary adjustment on your account for reported transactions appearing on your statement whilst we investigate the fraud.</p>
+
+		<ul>
+			<li>You will not be charged interest on the suspected fraudulent transactions(s)</li>
+			<li>Your credit limit will not be affected</li>
+			<li>The fraudulent transactions(s) will not be included in your minimum payment calculation</li>
+			<li>The temporary adjustment will be in place for 21 days</li>
+		</ul>
+
+		<br>
+
+		<h4>Next steps</h4>
+
+		<p>Review transactions listed in <strong>the Investigation authority</strong> section below and complete questions carefully and click <strong>Send authorisation</strong> so we can commence investigation on your behalf.</p>
+
+		<p>Alternatively you can click <a href="#">here</a> to print the attached letter/form. Answer the questions, sign and return it to us no later than 25 July 2014.</p>
+
+		<p>Following receipt of your authorisation and investigation, we will make a decision on your claim and advise you promptly of the final outcome.</p>
+
+		<br>
+
+		<h4>Investigation authority</h4>
+
+		<p>The below transactions have not yet posted to your statement. If they do post to your statement (which may take up to 30 days), and our investigations team determine them to be fraudulent, they will be refunded.</p>
+
+		<div class="row">
+			<div class="col-md-12">
+				<table class="table table-striped">
+					<thead>
+					<tr>
+						<td>Date</td>
+						<td>Merchant name</td>
+						<td>Location</td>
+						<td>Amount</td>
+					</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>03/07/2014</td>
+							<td>CHATEE STAR INC</td>
+							<td>USA</td>
+							<td>$0.01</td>
+						</tr>
+						<tr>
+							<td>03/07/2014</td>
+							<td>CHATEE STAR INC</td>
+							<td>USA</td>
+							<td>$0.01</td>
+						</tr>
+						<tr>
+							<td>03/07/2014</td>
+							<td>WesternUnion</td>
+							<td>AUD</td>
+							<td>$1,322.56</td>
+						</tr>
+					</tbody>
+				</table>
+			</div><!-- /.col-md-12 -->
+		</div><!-- /.row -->
+
+		&bull;&nbsp;Overseas transaction(s) that have not yet appeared on your statement, the amount may differ slightly due to overseas currency conversion fees, but the bank will refund the correct statement amount.
+		<br>
+		^ Denotes Amex transactions
+
+		<br><br>
+
+		<br>
+		<h4>Other things you should know</h4>
+
+		<ul>
+			<li>Advise any third parties the new card details so any automatic payments you set up continue to be paid, e.g. health funds, gas and electricity;</li>
+			<li>If these third parties are not notified, they may cancel any authorities with you and will result in automatic payments not being made and you may also incur fees;</li>
+			<li>You can click <a href="http://www.westpac.com.au/business-banking/credit-cards/manage/transfer-recurring-direct-debits/" target="_blank">here</a> to easily transfer regular payments online now;</li>
+			<li>For more information on preventing fraud click <a href="http://www.westpac.com.au/security/fraud-and-scams/credit-card-fraud/" target="_blank">here</a>.</li>
+		</ul>
+		<br>
+
+		<h4>Contact Details</h4>
+		<p>Toll free within Australia â€“ 1300 364 294 (Monday to Friday, 8am to 430pm)</p>
+		<p>From overseas reverse charge +61 2 9293 9270 (24 hours a day, 7 days a week)</p>
+
+		<br>
+		<p>
+			Yours sincerely
+		</p>
+		<p>
+			<strong>Bob Mcdonald</strong>
+			<br>
+			Manager, Fraud &amp; AML Operations
+		</p>
+	</div><!-- /.communication-msg -->
+
+	<div status-messages>
+		<div id="success">
+			<div status-message class="alert alert-success" style="display:none" data-persist="true" status-code="COMMUNICATION_UPDATED">
+					<button class="close">
+						&times;
+					</button>
+					<h4><i class="icon-exclamation-sign"> </i><span>Thank you</span></h4>
+					<span>You have successfully submitted the communication</span>
+				</div>
+			</div>
+			<div id="errors">
+				<div status-message class="alert alert-danger alert-dismissable" style="display:none" status-code="UNKNOWN_ERROR">
+					<button class="close">
+						&times;
+					</button>
+					<h4><i class="icon-exclamation-sign"> </i><span>Error</span></h4>
+					<span>An unknown error has occurred</span>
+				</div>
+				<div status-message class="alert alert-danger alert-dismissable" style="display:none" status-code="VALIDATION_FAILED">
+					<button class="close">
+						&times;
+					</button>
+					<h4><i class="icon-exclamation-sign"> </i><span>Error</span></h4>
+					<span>Validation failed</span>
+				</div>
+				<div status-message class="alert alert-danger alert-dismissable" style="display:none" status-code="ALREADY_SENT">
+					<button class="close">
+						&times;
+					</button>
+					<h4><i class="icon-exclamation-sign"> </i><span>Error</span></h4>
+					<span>The communication item has already been updated</span>
+				</div>
+			</div>
+	</div>
+
+	<!-- Only show this after revisiting the form. On first submit, the success message above should show. -->
+	<div ng-show="selectedDocument.formStatus != 'SUBMITTED' && !formSubmitted" class="alert alert-success communication-thank-you">
+		<h4>Thank you</h4> <span>You submitted the form on </span><span>{{conversationItem.selectedDocument.submitDate}}</span> <!--small>{{selectedDocument.submitDate | date:'hh:mm a'}}</small-->
+	</div>
+
+	<div class="communication-action" ng-hide="selectedDocument.formStatus != 'SUBMITTED' || formSubmitted">
+		<h4>PLEASE ANSWER YES OR NO TO THE FOLLOWING QUESTIONS:</h4>
+
+		<form name="communicationForm" class="form-horizontal" role="form" novalidate>
+			<div class="question">
+				<p>
+					<strong>1-</strong> Did you or the additional cardholder(s), (if applicable) authorise or participate in the above mentioned transaction(s) on your card?
+				</p>
+				<!-- <input type="text" ng-model="object.test"> -->
+				<div class="radio-inline">
+					<label>
+						<input type="radio" name="q1" value="Yes" ng-model="commFormData.values.q1" required>
+						Yes </label>
+				</div>
+
+				<div class="radio-inline">
+					<label>
+						<input type="radio" name="q1" value="No" ng-model="commFormData.values.q1" requireds>
+						No </label>
+				</div>
+			</div><!-- /.question -->
+
+			<div class="question">
+				<p>
+					<strong>2-</strong> Was the above card (5163xxxxxxxx6644) and any additional card(s) (if applicable) in your possession or the possession of the additional cardholder(s) while the above transaction(s) were being conducted?
+				</p>
+				<div class="radio-inline">
+					<label>
+						<input type="radio" name="q2" value="Yes" ng-model="commFormData.values.q2" required>
+						Yes </label>
+				</div>
+
+				<div class="radio-inline">
+					<label>
+						<input type="radio" name="q2" value="No" ng-model="commFormData.values.q2" required>
+						No </label>
+				</div>
+			</div><!-- /.question -->
+
+			<div class="question">
+				<p>
+					<strong>3-</strong> Was the above card or any additional card(s) (if applicable) Lost/Stolen or Not Received prior to the date the above transaction(s) were being conducted?
+				</p>
+				<div class="radio-inline">
+					<label>
+						<input type="radio" name="q3"  value="Yes" ng-model="commFormData.values.q3" required>
+						Yes </label>
+				</div>
+
+				<div class="radio-inline">
+					<label>
+						<input type="radio" name="q3" value="No" ng-model="commFormData.values.q3" required>
+						No </label>
+				</div>
+			</div><!-- /.question -->
+			<div class="form-group">
+				<label class="checkbox">
+					<input type="checkbox" name="tac" value="" ng-model="commFormData.tac">
+					I acknowledge that these statements are true and correct. I am willing for BANK to disclose information relating to the above account to law enforcement agencies. </label>
+			</div>
+
+			<button type="button" class="btn btn-primary" ng-click="submitForm()" ng-disabled="communicationForm.$invalid || communicationForm.$pristine || !commFormData.tac">
+				Send authorization
+			</button>
+		</form>
+	</div><!-- /.communication-action -->
+
+</div><!-- /.communication-body -->     
+    
+  </template>
+
+  <script>
+    Polymer({
+      is: "bank-fraud",
+      getConversations: function() {
+        console.log("getConversations");
+        this.$.ajax.url = "/dmbsrv/rest/user/b254b580-4cbe-11e3-8f96-0800200c1002/folder/Conversations/document";
+        this.$.ajax.generateRequest();
+      },
+     getAuthUser: function() {
+        console.log("getAuthUser");
+        this.$.ajax.url = "/dmbsrv/rest/auth";
+        this.$.ajax.generateRequest();
+      },      
+      ready: function() {
+        this.getAuthUser();
+        //this.userProfile = {
+          //firstName: "Peter",
+          //lastName: "Wong"
+        //},
+        this.conversationItem = {
+          selectedDocument: {
+            formStatus: "SUBMITTED",
+            submitDate: "17/08/2015"
+          }
+        };
+      },
+      handleResponse: function(request) {
+          console.log(request.detail.response);
+          console.log(this.$.ajax.lastResponse);
+          this.userProfile = request.detail.response;
+          
+      }      
+    });
+  </script>
+
+</dom-module>
